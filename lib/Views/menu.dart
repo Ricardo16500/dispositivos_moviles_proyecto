@@ -212,18 +212,35 @@ class _MenuState extends State<Menu> {
               ),
             ),
 
-            FlatButton(
-                color: Colors.white,
-                child: Text('ACEPTAR',style: TextStyle(fontSize: 20,color: Colors.red[900]),),
-            onPressed: (){
-                setState(() {
-                  var st = _n* double.parse(precio);
-                  DatosComprar comp = new DatosComprar(nom, precio, _n.toString(),st.toString());
-                  vCompras.add(comp);
-                });
-                Navigator.pop(context, 'ACEPTAR');
+            Center(
+              child: Row(
+                children: [
+                  FlatButton(
+                      color: Colors.white,
+                      child: Text('ACEPTAR',style: TextStyle(fontSize: 20,color: Colors.red[900]),),
+                  onPressed: (){
+                      setState(() {
+                        var st = _n* double.parse(precio);
+                        DatosComprar comp = new DatosComprar(nom, precio, _n.toString(),st.toString());
+                        vCompras.add(comp);
+                      });
+                      Navigator.pop(context, 'ACEPTAR');
           }
 
+                  ),
+                  FlatButton(
+                      color: Colors.white,
+                      child: Text('CANCELAR',style: TextStyle(fontSize: 20,color: Colors.red[900]),),
+                      onPressed: (){
+                        setState(() {
+
+                        });
+                        Navigator.pop(context, 'CANCELAR');
+                      }
+
+                  ),
+                ],
+              ),
             )
           ],
         );

@@ -88,7 +88,7 @@ class _ComprasState extends State<Compras> {
               child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                 Text('Total: ${sumar()} Bs', style: TextStyle(fontSize: 15,color: Colors.red[900]),),
+                 Text('Total: ${sumar()} Bs', style: TextStyle(fontSize: 16,color: Colors.red[900]),),
 
                     FlatButton(
                       color: Colors.white,
@@ -112,7 +112,7 @@ class _ComprasState extends State<Compras> {
                             context: context,
                             builder: (BuildContext context) => AlertDialog(
                               title: Text('VENTA REALIZADA '),
-                              content: Text("¡ SE HA REALIZADO LA VENTA !"),
+                              content: Text("¡SE HA REALIZADO LA VENTA!"),
                               actions: <Widget>[
                                 TextButton(
                                   onPressed: () =>Navigator.push(context, ScaleRoute(page: Menu(nom,pass, null))),
@@ -123,8 +123,28 @@ class _ComprasState extends State<Compras> {
                           );
                         });
                         },
-                        child: Text("ACEPTAR",style: TextStyle(fontSize: 20,color: Colors.red[900]),),
-                    )
+                        child: Text("ACEPTAR",style: TextStyle(fontSize: 16,color: Colors.red[900]),),
+                    ),
+                  FlatButton(
+                      onPressed: (){
+                          setState(() {
+                            vCompras.clear();
+                            showDialog<String>(
+                                context: context,
+                                builder: (BuildContext context) => AlertDialog(
+                              title: Text('VENTA CANCELADA '),
+                              content: Text("¡SE HA CANCELADO LA VENTA!"),
+                              actions: <Widget>[
+                                TextButton(
+                                  onPressed: () =>Navigator.push(context, ScaleRoute(page: Menu(nom,pass, null))),
+                                  child: const Text('ACEPTAR'),
+                                ),
+                              ],
+                            ),
+                            );
+                          });
+                      },
+                      child: Text("CANCELAR", style: TextStyle(fontSize: 20,color: Colors.red[900]))),
                 ],
               ),
           ),
