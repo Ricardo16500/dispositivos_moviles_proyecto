@@ -1,4 +1,4 @@
-# despositivos_moviles_proyecto
+# dispositivos_moviles_proyecto
 
 A new Flutter application.
 
